@@ -123,6 +123,9 @@ contract SimpleStoreTest is DSTest {
 
 ```
 
+<br>
+
 # Other Foundry Integrations
-[Foundry-Yulp](https://github.com/ControlCplusControlV/Foundry-Yulp-Template). 
-[Foundry-Huff](https://github.com/0xKitsune/Foundry-Huff)
+
+- [Foundry-Yul+](https://github.com/ControlCplusControlV/Foundry-Yulp-Template) 
+- [Foundry-Huff](https://github.com/0xKitsune/Foundry-Huff)
