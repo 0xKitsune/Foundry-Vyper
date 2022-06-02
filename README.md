@@ -39,7 +39,7 @@ Here is the `SimpleStore.vy` file, which should be within the `vyper_contracts` 
 
 ### SimpleStore.Vyper
 
-```js
+```py
 # @version ^0.2.0
 
 val: uint256
