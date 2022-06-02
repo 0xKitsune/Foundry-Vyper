@@ -1,6 +1,6 @@
 # Foundry x Vyper
 
-A Foundry template to compile and test Vyper Contracts. 
+A Foundry template to compile and test Vyper contracts (inspired by [Foundry-Yulp](https://github.com/ControlCplusControlV/Foundry-Yulp-Template)). 
 
 ```
                        ,,,,,,,,,,,,,                        ,,,,,,,,,,,,
