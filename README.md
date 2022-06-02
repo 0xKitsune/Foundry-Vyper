@@ -23,7 +23,7 @@ Next, you will need to create an interface for your contract. This will allow Fo
 
 Once you have an interface set up for your contract, you are ready to use the VyperDeployer!
 
-The VyperDeployer is a pre-built contract that takes a filename and deploys the corresponding Vyper contract, returning the address that the bytecode was deployed to. If you want, you can check out [how the VyperDeployer works under the hood]().
+The VyperDeployer is a pre-built contract that takes a filename and deploys the corresponding Vyper contract, returning the address that the bytecode was deployed to. If you want, you can check out [how the VyperDeployer works under the hood](https://github.com/0xKitsune/Foundry-Vyper/blob/main/lib/utils/VyperDeployer.sol).
 
 From here, you can simply initialize a new contract through the interface you made and pass in the address of the deployed Vyper contract bytecode. Now your Vyper contract is fully functional within Foundry!
 
