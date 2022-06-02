@@ -1,5 +1,7 @@
 # Foundry x Vyper
 
+NOTE: This is still under development. This note will be removed shortly once everything is functional.
+
 A Foundry template to compile and test Vyper Contracts.
 
 ## Installation / Setup
