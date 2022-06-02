@@ -1,6 +1,6 @@
 # Foundry x Vyper
 
-A Foundry template to compile and test Vyper contracts (inspired by [Foundry-Yulp](https://github.com/ControlCplusControlV/Foundry-Yulp-Template)). 
+A Foundry template to compile and test Vyper contracts. 
 
 ```
                        ,,,,,,,,,,,,,                        ,,,,,,,,,,,,
@@ -122,3 +122,7 @@ contract SimpleStoreTest is DSTest {
 }
 
 ```
+
+# Other Foundry Integrations
+[Foundry-Yulp](https://github.com/ControlCplusControlV/Foundry-Yulp-Template). 
+[Foundry-Huff](https://github.com/0xKitsune/Foundry-Huff)
