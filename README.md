@@ -3,11 +3,11 @@
 A Foundry template to compile and test Vyper Contracts.
 
 ```
-██    ██ ██    ██ ██████  ███████ ██████  
-██    ██  ██  ██  ██   ██ ██      ██   ██ 
-██    ██   ████   ██████  █████   ██████  
- ██  ██     ██    ██      ██      ██   ██ 
-  ████      ██    ██      ███████ ██   ██ 
+        ██    ██ ██    ██ ██████  ███████ ██████  
+        ██    ██  ██  ██  ██   ██ ██      ██   ██ 
+        ██    ██   ████   ██████  █████   ██████  
+         ██  ██     ██    ██      ██      ██   ██ 
+          ████      ██    ██      ███████ ██   ██ 
 
   ```
 
@@ -47,13 +47,13 @@ Here is the `SimpleStore.vy` file, which should be within the `vyper_contracts` 
 ### SimpleStore.Vyper
 
 ```py
-# @version ^0.2.0
-
 val: uint256
 
+@external
 def store(_val: uint256):
     self.val = _val
 
+@external
 def get() -> uint256:
     return self.val
 
