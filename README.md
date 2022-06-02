@@ -40,36 +40,16 @@ Here is the `SimpleStore.vy` file, which should be within the `vyper_contracts` 
 ### SimpleStore.Vyper
 
 ```js
-/* Storage Slots */
-#define constant VAL_LOCATION = FREE_STORAGE_POINTER()
+# @version ^0.2.0
 
-/* Constructor */
-#define macro CONSTRUCTOR() = takes(0) returns (0) {}
+val: uint256
 
-//Get the value from storage
-#define macro GET() = takes (0) returns (1) {
-    [VAL_LOCATION] sload 0x00 mstore
-    0x20 0x00 return
-}
+def store(_val: uint256):
+    self.val = _val
 
-//Update the value in storage
-#define macro STORE() = takes (1) returns (0) {
-    [VAL_LOCATION] sstore
-}
+def get() -> uint256:
+    return self.val
 
-
-// Main Macro
-#define macro MAIN() = takes(0) returns (0) {
-    // Identify which function is being called.
-    0x00 calldataload 0xE0 shr
-    dup1 0xa9059cbb eq get jumpi
-    dup1 0x6d4ce63c eq store jumpi
-
-    get:
-        GET()
-    store:
-        STORE()
-}
 ```
 
 Next, here is an example interface for the SimpleStore contract.
