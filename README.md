@@ -2,6 +2,15 @@
 
 A Foundry template to compile and test Vyper Contracts.
 
+```
+██    ██ ██    ██ ██████  ███████ ██████  
+██    ██  ██  ██  ██   ██ ██      ██   ██ 
+██    ██   ████   ██████  █████   ██████  
+ ██  ██     ██    ██      ██      ██   ██ 
+  ████      ██    ██      ███████ ██   ██ 
+
+  ```
+
 ## Installation / Setup
 
 To set up Foundry x Vyper, first make sure you have [Vyper](https://vyper.readthedocs.io/en/stable/installing-vyper.html) installed.
