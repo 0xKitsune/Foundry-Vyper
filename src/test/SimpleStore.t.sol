@@ -14,6 +14,7 @@ contract SimpleStoreTest is DSTest {
     ISimpleStore simpleStore;
 
     function setUp() public {
+
         ///@notice deploy a new instance of ISimplestore by passing in the address of the deployed Vyper contract
         simpleStore = ISimpleStore(vyperDeployer.deployContract("SimpleStore"));
     }

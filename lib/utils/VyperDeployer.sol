@@ -21,12 +21,14 @@ contract VyperDeployer {
     function deployContract(string memory fileName) public returns (address) {
         ///@notice create a list of strings with the commands necessary to compile Yul and Yul+ contracts
 
+
+
         string[] memory cmds = new string[](2);
-        cmds[0] = "vyper -f bytecode";
+        cmds[0] = "vyper";
         cmds[1] = string.concat("vyper_contracts/", fileName, ".vy");
 
         ///@notice compile the Vyper contract and return the bytecode
-        bytes memory bytecode = abi.decode(cheatCodes.ffi(cmds), (bytes));
+        bytes memory bytecode = cheatCodes.ffi(cmds);
 
         ///@notice deploy the bytecode with the create instruction
         address deployedAddress;
@@ -41,6 +43,6 @@ contract VyperDeployer {
         );
 
         ///@notice return the address that the contract was deployed to
-        return address(0);
+        return deployedAddress;
     }
 }
