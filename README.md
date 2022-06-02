@@ -1,7 +1,5 @@
 # Foundry x Vyper
 
-NOTE: This will not work until the [Vyperc yarn package](https://yarnpkg.com/package/Vyperc) is updated to include the [-n flag for compilation](https://github.com/Vyper-language/Vyperc/commit/2e5287afbfdf9cc977b204a4fd1e89c27375b040). Alternatively, you can build from source until then. This note will be removed when the yarn package is updated.
-
 A Foundry template to compile and test Vyper Contracts. 
 
 ```
