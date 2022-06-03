@@ -20,9 +20,6 @@ contract VyperDeployer {
 
     function deployContract(string memory fileName) public returns (address) {
         ///@notice create a list of strings with the commands necessary to compile Vyper contracts
-
-
-
         string[] memory cmds = new string[](2);
         cmds[0] = "vyper";
         cmds[1] = string.concat("vyper_contracts/", fileName, ".vy");
