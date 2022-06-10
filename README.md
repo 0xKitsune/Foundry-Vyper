@@ -94,7 +94,7 @@ To deploy the contract, simply create a new instance of `VyperDeployer` and call
 
 The deployed address is then used to initialize the ISimpleStore interface. Once the interface has been initialized, your Vyper contract can be used within Foundry like any other Solidity contract.
 
-To test any Vyper contract deployed with VyperDeployer, simply run `forge test --ffi`. You can use this command with any additional flags. For example: `forge test --ffi -f <url> -vvvv`.
+To test any Vyper contract deployed with VyperDeployer, simply run `forge test`. Since `ffi` is set to `true` in the `foundry.toml` file, you can run `forge test` without needing to pass in the `--ffi` flag. You can also use additional flags as you would with any other Foundry project. For example: `forge test -f <url> -vvvv`.
 
 ```js
 import "../../lib/ds-test/test.sol";
