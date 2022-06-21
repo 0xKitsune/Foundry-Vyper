@@ -15,14 +15,21 @@ contract SimpleStoreTest is DSTest {
 
     function setUp() public {
         ///@notice deploy a new instance of ISimplestore by passing in the address of the deployed Vyper contract
-        simpleStore = ISimpleStore(vyperDeployer.deployContract("SimpleStore"));
+        simpleStore = ISimpleStore(
+            vyperDeployer.deployContract("SimpleStore", abi.encode(1234))
+        );
     }
 
     function testGet() public {
-        simpleStore.get();
+        uint256 val = simpleStore.get();
+
+        require(val == 1234);
     }
 
-    function testStore(uint256 val) public {
-        simpleStore.store(val);
+    function testStore(uint256 _val) public {
+        simpleStore.store(_val);
+        uint256 val = simpleStore.get();
+
+        require(_val == val);
     }
 }
