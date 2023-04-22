@@ -1,8 +1,6 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity >=0.8.13;
 
-import "./Console.sol";
-
 ///@notice This cheat codes interface is named _CheatCodes so you can use the CheatCodes interface in other testing files without errors
 interface _CheatCodes {
     function ffi(string[] calldata) external returns (bytes memory);
@@ -106,8 +104,6 @@ contract VyperDeployer {
         );
 
         bytes2 len = bytes2(uint16(eip_5202_bytecode.length));
-
-        // bytes memory eip_5202_bytecode_length_2_bytes = abi.encodePacked(len);
 
         /// @notice prepend the deploy preamble
         bytes memory deployBytecode = bytes.concat(
