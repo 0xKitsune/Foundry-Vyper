@@ -12,11 +12,16 @@ contract SimpleStoreTest is DSTest {
     VyperDeployer vyperDeployer = new VyperDeployer();
 
     ISimpleStore simpleStore;
+    ISimpleStore simpleStoreBlueprint;
 
     function setUp() public {
         ///@notice deploy a new instance of ISimplestore by passing in the address of the deployed Vyper contract
         simpleStore = ISimpleStore(
             vyperDeployer.deployContract("SimpleStore", abi.encode(1234))
+        );
+
+        simpleStoreBlueprint = ISimpleStore(
+            vyperDeployer.deployBlueprint("SimpleStore", abi.encode(1234))
         );
     }
 

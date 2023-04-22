@@ -77,4 +77,46 @@ contract VyperDeployer {
         ///@notice return the address that the contract was deployed to
         return deployedAddress;
     }
+
+    /// @dev Consider listening to the Blueprint if you haven't already
+    /// @param fileName - The file name of the Blueprint Contract
+    function deployBlueprint(string memory fileName, bytes calldata args) public returns (address) {
+        ///@notice create a list of strings with the commands necessary to compile Vyper contracts
+        string[] memory cmds = new string[](2);
+        cmds[0] = "vyper";
+        cmds[1] = string.concat("vyper_contracts/", fileName, ".vy");
+
+        ///@notice compile the Vyper contract and return the bytecode
+        bytes memory _bytecode = cheatCodes.ffi(cmds);
+
+        /// @notice add args to the deployment bytecode
+        bytes memory bytecode = abi.encodePacked(_bytecode, args);
+
+        /// @notice prepend needed items for Blueprint ERC 
+        /// See https://eips.ethereum.org/EIPS/eip-5202 for more details
+        uint256 byte_code_length = bytecode.length;
+        bytes memory deployPreamble = abi.encodePacked(
+            "61",
+            byte_code_length,
+            "3d81600a3d39f3"
+        );
+        bytes memory deployBytecode = abi.encodePacked(
+            deployPreamble,
+            bytecode
+        );
+
+        ///@notice check that the deployment was successful
+        address deployedAddress;
+        assembly {
+            deployedAddress := create(0, add(deployBytecode, 0x20), mload(bytecode))
+        }
+
+        require(
+            deployedAddress != address(0),
+            "VyperDeployer could not deploy contract"
+        );
+
+        ///@notice return the address that the contract was deployed to
+        return deployedAddress;
+    }
 }
