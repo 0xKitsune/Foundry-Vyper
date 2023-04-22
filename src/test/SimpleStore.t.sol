@@ -38,13 +38,17 @@ contract SimpleStoreTest is DSTest {
     }
 
     function testFactory() public {
-        address deployedAddress = simpleStoreFactory.deploy(address(simpleStoreBlueprint));
+        address deployedAddress = simpleStoreFactory.deploy(address(simpleStoreBlueprint), 1354);
 
         ISimpleStore deployedSimpleStore = ISimpleStore(deployedAddress);
 
+        uint256 val = deployedSimpleStore.get();
+
+        require(val == 1354);
+
         deployedSimpleStore.store(1234);
 
-        uint256 val = deployedSimpleStore.get();
+        val = deployedSimpleStore.get();
 
         require(val == 1234);
     }

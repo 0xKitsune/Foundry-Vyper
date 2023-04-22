@@ -8,5 +8,5 @@ interface ISimpleStore {
 }
 
 interface ISimpleStoreFactory {
-    function deploy(address blueprint) external returns (address);
+    function deploy(address blueprint, uint256 arg1) external returns (address);
 }
