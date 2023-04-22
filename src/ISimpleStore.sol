@@ -6,3 +6,7 @@ interface ISimpleStore {
 
     function get() external returns (uint256);
 }
+
+interface ISimpleStoreFactory {
+    function deploy(address blueprint, uint256 arg1) external returns (address);
+}
