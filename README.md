@@ -48,7 +48,7 @@ Now you are all set up and ready to go! Below is a quick example of how to set u
 
 # Compiling/Testing Vyper Contracts
 
-The VyperDeployer is a pre-built contract that takes a filename and deploys the corresponding Vyper contract, returning the address that the bytecode was deployed to. If you want, you can check out [how the VyperDeployer works under the hood](https://github.com/0xKitsune/Foundry-Vyper/blob/main/lib/utils/VyperDeployer.sol). Below is a quick example of how to setup and deploy a SimpleStore contract written in Vyper.
+The VyperDeployer is a library that takes a filename and deploys the corresponding Vyper contract, returning the address that the bytecode was deployed to. If you want, you can check out [how the VyperDeployer works under the hood](https://github.com/0xKitsune/Foundry-Vyper/blob/main/lib/utils/VyperDeployer.sol). Below is a quick example of how to setup and deploy a SimpleStore contract written in Vyper.
 
 
 ## SimpleStore.Vyper

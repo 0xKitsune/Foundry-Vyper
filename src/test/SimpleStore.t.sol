@@ -8,26 +8,34 @@ import "../../lib/utils/VyperDeployer.sol";
 import "../ISimpleStore.sol";
 
 contract SimpleStoreTest is DSTest {
-    ///@notice create a new instance of VyperDeployer
-    VyperDeployer vyperDeployer = new VyperDeployer();
 
     ISimpleStore simpleStore;
+    ISimpleStore simpleStorePayable;
     ISimpleStore simpleStoreBlueprint;
     ISimpleStoreFactory simpleStoreFactory;
 
     function setUp() public {
         ///@notice deploy a new instance of ISimplestore by passing in the address of the deployed Vyper contract
-        simpleStore = ISimpleStore(vyperDeployer.deployContract("SimpleStore", abi.encode(1234)));
+        simpleStore = ISimpleStore(VyperDeployer.deployContract("SimpleStore", abi.encode(1234)));
 
-        simpleStoreBlueprint = ISimpleStore(vyperDeployer.deployBlueprint("ExampleBlueprint"));
+        simpleStorePayable = ISimpleStore(VyperDeployer.deployContract("SimpleStorePayable", 4321));
 
-        simpleStoreFactory = ISimpleStoreFactory(vyperDeployer.deployContract("SimpleStoreFactory"));
+        simpleStoreBlueprint = ISimpleStore(VyperDeployer.deployBlueprint("ExampleBlueprint"));
+
+        simpleStoreFactory = ISimpleStoreFactory(VyperDeployer.deployContract("SimpleStoreFactory"));
     }
 
     function testGet() public {
         uint256 val = simpleStore.get();
 
         require(val == 1234);
+    }
+
+    function testBalance() public {
+        uint256 balance = address(simpleStorePayable).balance;
+        uint256 val = simpleStorePayable.get();
+
+        require(balance == val);
     }
 
     function testStore(uint256 _val) public {
